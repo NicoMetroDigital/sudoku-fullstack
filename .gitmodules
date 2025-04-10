@@ -1,0 +1,6 @@
+[submodule "sudoku-frontend"]
+	path = sudoku-frontend
+	url = https://github.com/NicoMetroDigital/sudoku-frontend.git
+[submodule "Sudoku"]
+	path = Sudoku
+	url = https://github.com/NicoMetroDigital/Sudoku.git
