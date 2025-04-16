@@ -8,7 +8,7 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: password
     ports:
-      - "5432:5432"  # Port als Liste
+      - "5432:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
     networks:
@@ -16,7 +16,7 @@ services:
 
   frontend:
     build:
-      context: ./sudoku-frontend  # Nicht mehr /src, sondern Root!
+      context: ./sudoku-frontend
       dockerfile: Dockerfile
     ports:
       - "5173:80"
@@ -27,9 +27,9 @@ services:
 
   sudoku:
     build:
-      context: ./Sudoku  # Der Kontext zeigt jetzt auf das sudoku-Verzeichnis
+      context: ./Sudoku
     ports:
-      - "8080:8080"  # Port als Liste
+      - "8080:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/sudoku
       SPRING_DATASOURCE_USERNAME: postgres
