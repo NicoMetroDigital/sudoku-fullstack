@@ -16,20 +16,18 @@ services:
 
   frontend:
     build:
-      context: ./frontend/frontend
+      context: ./sudoku-frontend  # Nicht mehr /src, sondern Root!
       dockerfile: Dockerfile
     ports:
-      - "5173:5173"  # Port als Liste
-    depends_on:
-      - backend
+      - "5173:80"
     environment:
-      - REACT_APP_API_URL=http://backend:8080
+      - REACT_APP_API_URL=http://sudoku:8080
     networks:
       - app-network
 
-  backend:
+  sudoku:
     build:
-      context: ./backend
+      context: ./Sudoku  # Der Kontext zeigt jetzt auf das sudoku-Verzeichnis
     ports:
       - "8080:8080"  # Port als Liste
     environment:
@@ -47,4 +45,3 @@ networks:
 
 volumes:
   db-data:
-
