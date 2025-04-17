@@ -1,4 +1,5 @@
-version: '3'
+version: '3.8'
+
 services:
   db:
     image: postgres:15
@@ -24,6 +25,8 @@ services:
       - REACT_APP_API_URL=http://sudoku:8080
     networks:
       - app-network
+    depends_on:
+      - sudoku
 
   sudoku:
     build:
